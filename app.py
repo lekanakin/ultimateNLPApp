@@ -67,39 +67,11 @@ def main():
 	st.markdown("""
     	#### Description
     	+ This is a Natural Language Processing(NLP) Based App useful for basic NLP task
-    	Tokenization, Lemmatization, Named Entity Recognition (NER), Sentiment Analysis, Text Summarization. Built for social good by [LekanAkin](https://github.com/lekanakin). Click any of the checkboxes to get started.
+    	Tokenization , Lemmatization, Named Entity Recognition (NER), Sentiment Analysis, Text Summarization. Built for social good by [LekanAkin](https://github.com/lekanakin). Click any of the checkboxes to get started.
     	""")
 
-	# Tokenization
-	if st.checkbox("Show Tokens and Lemma"):
-		st.subheader("Tokenize Your Text")
-
-		message = st.text_area("Enter Text","Type Here.")
-		if st.button("Analyze"):
-			nlp_result = text_analyzer(message)
-			st.json(nlp_result)
-
-	# Entity Extraction
-	if st.checkbox("Show Named Entities"):
-		st.subheader("Identify Entities in your text")
-
-		message = st.text_area("Enter Text","Type Here..")
-		if st.button("Extract"):
-			entity_result = entity_analyzer(message)
-			st.json(entity_result)
-
-	# Sentiment Analysis
-	if st.checkbox("Show Sentiment Analysis"):
-		st.subheader("Identify Sentiment in your Text")
-
-		message = st.text_area("Enter Text","Type Here...")
-		if st.button("Analyze"):
-			blob = TextBlob(message)
-			result_sentiment = blob.sentiment
-			st.success(result_sentiment)
-
 	# Summarization
-	if st.checkbox("Show Text Summarization"):
+	if st.checkbox("Get the summary of your text"):
 		st.subheader("Summarize Your Text")
 
 		message = st.text_area("Enter Text","Type Here....")
@@ -115,15 +87,43 @@ def main():
 				st.warning("Using Default Summarizer")
 				st.text("Using Gensim Summarizer ..")
 				summary_result = summarize(message)
-
-
 			st.success(summary_result)
+
+	# Sentiment Analysis
+	if st.checkbox("Get the Sentiment Score of your text"):
+		st.subheader("Identify Sentiment in your Text")
+
+		message = st.text_area("Enter Text","Type Here...")
+		if st.button("Analyze"):
+			blob = TextBlob(message)
+			result_sentiment = blob.sentiment
+			st.success(result_sentiment)
+
+	# Entity Extraction
+	if st.checkbox("Get the Named Entities of your text"):
+		st.subheader("Identify Entities in your text")
+
+		message = st.text_area("Enter Text","Type Here..")
+		if st.button("Extract"):
+			entity_result = entity_analyzer(message)
+			st.json(entity_result)
+
+	# Tokenization
+	if st.checkbox("Get the Tokens and Lemma of text"):
+		st.subheader("Tokenize Your Text")
+
+		message = st.text_area("Enter Text","Type Here.")
+		if st.button("Analyze"):
+			nlp_result = text_analyzer(message)
+			st.json(nlp_result)
+
+
 
 
 
 	st.sidebar.subheader("About App")
 	st.sidebar.text("NLP for everyone.")
-	st.sidebar.info("Use this tool to get the sentiment score, tokens , lemma, Named Entities and Summary of your text. It's the ultimate")
+	st.sidebar.info("Use this tool to get the sentiment score, tokens , lemma, Named Entities and Summary of your text. It's the ultimate!")
 	st.sidebar.subheader("Developed by")
 	st.sidebar.text("Lekan Akinsande (Twitter: @Akinsande1)")
 
