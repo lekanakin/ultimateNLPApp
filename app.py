@@ -67,7 +67,7 @@ def main():
 	st.markdown("""
     	#### Description
     	+ This is a Natural Language Processing(NLP) Based App useful for basic NLP task
-    	Tokenization, Lemmatization, Named Entity Recognition (NER), Sentiment Analysis, Text Summarization. Click any of the checkboxes to get started.
+    	Tokenization, Lemmatization, Named Entity Recognition (NER), Sentiment Analysis, Text Summarization. Built for social good by [LekanAkin](https://github.com/lekanakin). Click any of the checkboxes to get started.
     	""")
 
 	# Tokenization
@@ -125,7 +125,8 @@ def main():
 	st.sidebar.text("NLP for everyone.")
 	st.sidebar.info("Use this tool to get the sentiment score, tokens , lemma, Named Entities and Summary of your text. It's the ultimate")
 	st.sidebar.subheader("Developed by")
-	st.sidebar.text("Lekan Akinsande (GitHub: LekanAkin)")
+	st.sidebar.text("Lekan Akinsande (Twitter: @Akinsande1)")
+
 
 
 
