@@ -119,8 +119,6 @@ def main():
 
 
 
-
-
 	st.sidebar.subheader("About App")
 	st.sidebar.text("NLP for everyone.")
 	st.sidebar.info("Use this tool to get the sentiment score, tokens , lemma, Named Entities and Summary of your text. It's the ultimate!")
