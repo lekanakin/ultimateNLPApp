@@ -20,6 +20,8 @@ import os
 from textblob import TextBlob
 import spacy
 from gensim.summarization.summarizer import summarize
+import nltk
+nltk.download('punkt')
 
 # Sumy Summary Pkg
 from sumy.parsers.plaintext import PlaintextParser
@@ -65,14 +67,14 @@ def main():
 	st.markdown("""
     	#### Description
     	+ This is a Natural Language Processing(NLP) Based App useful for basic NLP task
-    	Tokenization, Named Entity Recognition (NER), Sentiment Analyzer, Text Summarization. Click any of the checkboxes to get started.
+    	Tokenization, Lemmatization, Named Entity Recognition (NER), Sentiment Analysis, Text Summarization. Click any of the checkboxes to get started.
     	""")
 
 	# Tokenization
 	if st.checkbox("Show Tokens and Lemma"):
 		st.subheader("Tokenize Your Text")
 
-		message = st.text_area("Enter Text","Type Here")
+		message = st.text_area("Enter Text","Type Here.")
 		if st.button("Analyze"):
 			nlp_result = text_analyzer(message)
 			st.json(nlp_result)
@@ -81,7 +83,7 @@ def main():
 	if st.checkbox("Show Named Entities"):
 		st.subheader("Identify Entities in your text")
 
-		message = st.text_area("Enter Text","Type Here")
+		message = st.text_area("Enter Text","Type Here..")
 		if st.button("Extract"):
 			entity_result = entity_analyzer(message)
 			st.json(entity_result)
@@ -90,7 +92,7 @@ def main():
 	if st.checkbox("Show Sentiment Analysis"):
 		st.subheader("Identify Sentiment in your Text")
 
-		message = st.text_area("Enter Text","Type Here")
+		message = st.text_area("Enter Text","Type Here...")
 		if st.button("Analyze"):
 			blob = TextBlob(message)
 			result_sentiment = blob.sentiment
@@ -100,7 +102,7 @@ def main():
 	if st.checkbox("Show Text Summarization"):
 		st.subheader("Summarize Your Text")
 
-		message = st.text_area("Enter Text","Type Here")
+		message = st.text_area("Enter Text","Type Here....")
 		summary_options = st.selectbox("Choose Summarizer",['sumy','gensim'])
 		if st.button("Summarize"):
 			if summary_options == 'sumy':
@@ -120,9 +122,9 @@ def main():
 
 
 	st.sidebar.subheader("About App")
-	st.sidebar.text("NLP for everyone")
-	st.sidebar.info("Use this tool to get the sentiment, token , lemma and Summary of your text")
-	st.sidebar.subheader("By")
+	st.sidebar.text("NLP for everyone.")
+	st.sidebar.info("Use this tool to get the sentiment score, tokens , lemma, Named Entities and Summary of your text. It's the ultimate")
+	st.sidebar.subheader("Developed by")
 	st.sidebar.text("Lekan Akinsande (GitHub: LekanAkin)")
 
 
